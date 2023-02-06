@@ -139,10 +139,56 @@ hr {
 	display: flex;
 	flex-direction: column;
 	flex: 1;
-	background-color: blue;
+	background-color: rgb(220, 220, 220);
 	min-width: 626px;
+	box-sizing: border-box;
+	padding: 20px;
 }
 
+.task {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 50px;
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.task > div {
+	display: flex;
+	align-items: center;
+}
+
+.task-start {
+
+}
+
+.task-end {
+
+}
+
+.task-circle {
+	width: 25px;
+	height: 25px; 
+	border-radius: 50%;
+	border: 1px solid black;
+	margin: 5px;
+}
+
+.task-title {
+
+}
+
+.task-date {
+
+}
+
+.task-edit {
+	justify-self: end;
+}
+
+/*responsive website designs*/
 
 @media (max-width: 820px) {
 	#content {
