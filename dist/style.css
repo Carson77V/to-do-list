@@ -120,17 +120,28 @@ hr {
 	width: 100%;
 }
 
-#menu > div div:hover {
+.menu-item:hover {
 	background-color: var(--hover-blue);
 }
 
-#menu > div > div {
+.menu-item {
 	padding: 5px 0 5px 10px;
 	margin: 3px 0;
 	border-radius: 7px;
 	font-size: clamp(1rem, 3vw, 1.5rem);
 	background-color: var(--main-blue);
 	width: auto;
+}
+
+.project-title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.project-title > svg {
+	margin-right: 8px;
+	height: 35px;
 }
 
 /* Styles for the to-do list section of page*/
