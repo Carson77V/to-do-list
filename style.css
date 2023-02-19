@@ -151,14 +151,9 @@ hr {
 	justify-content: space-between;
 	height: 50px;
 	width: 100%;
-<<<<<<< HEAD
 	max-width: 700px;
 	margin: 0 auto;
 	border-radius: 7px;
-=======
-	max-width: 800px;
-	margin: 0 auto;
->>>>>>> 7bf36d836ae27ea4c4d2cbfa86733d76423aa22a
 }
 
 .task > div {
@@ -166,17 +161,6 @@ hr {
 	align-items: center;
 }
 
-<<<<<<< HEAD
-=======
-.task-start {
-
-}
-
-.task-end {
-
-}
-
->>>>>>> 7bf36d836ae27ea4c4d2cbfa86733d76423aa22a
 .task-circle {
 	width: 25px;
 	height: 25px; 
@@ -186,7 +170,6 @@ hr {
 }
 
 .task-title {
-<<<<<<< HEAD
 	font-size: 1.3rem;
 	margin: 0 5px;
 }
@@ -194,18 +177,10 @@ hr {
 .task-date {
 	font-size: 1.1rem;
 	margin: 0 5px;
-=======
-
-}
-
-.task-date {
-
->>>>>>> 7bf36d836ae27ea4c4d2cbfa86733d76423aa22a
 }
 
 .task-edit {
 	justify-self: end;
-<<<<<<< HEAD
 	margin: 0 5px;
 }
 
@@ -220,8 +195,6 @@ hr {
 
 .add-task:hover {
 	background-color: var(--hover-blue);
-=======
->>>>>>> 7bf36d836ae27ea4c4d2cbfa86733d76423aa22a
 }
 
 /*responsive website designs*/
@@ -239,13 +212,10 @@ hr {
 		min-width: 0;
 	}
 }
-<<<<<<< HEAD
 
 svg {
 	height: 25px;
 	width: auto;
 }
-=======
->>>>>>> 7bf36d836ae27ea4c4d2cbfa86733d76423aa22a
 
 
