@@ -1,13 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
 </head>
 <body>
-    
+  <header>
+    <h1>To-Do List</h1>
+    <img src="./images/menu.svg" alt="menu icon">
+  </header>
+
+  <div id="content">
+    <div id="menu">
+      <div class="home">
+        <h2>Home</h2>
+        <hr>
+        <div>All</div>
+        <div>Today</div>
+        <div>Important</div>
+      </div>
+      <div class="projects">
+        <h2>Projects</h2>
+        <hr>
+        <div>tester</div>
+        <div>tester</div>
+        <div>tester</div>
+        <div>tester</div>
+        <div>tester</div>
+        <div>tester</div>
+        <div>tester</div>
+        <div>tester</div>
+        <div>tester</div>
+        <div>tester</div>
+      </div>
+    </div>
+
+    <div id="tasks">
+      <div class="task">
+        <div class="task-start">
+          <span class="task-circle"></span>
+          <div class="task-title">Tester Title</div>
+        </div>
+        <div class="task-end">
+          <div class="task-date">1/1/2024</div>
+          <button class="task-edit">Edit</button>
+        </div>
+      </div>
+
+      <div class="add-task">
+        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" fill="red"><title>Add</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 112v288M400 256H112"/></svg>
+        <p>Add Task</p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
