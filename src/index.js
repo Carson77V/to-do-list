@@ -1,8 +1,2 @@
-import { addTitle, getTitles, deleteTitle} from "./js-modules/projects.js";
+import * as projectController from "./js-modules/projects-control.js";
 
-addTitle("tester")
-addTitle("tester2")
-addTitle("tester3")
-console.log(getTitles())
-deleteTitle("tester2")
-console.log(getTitles())

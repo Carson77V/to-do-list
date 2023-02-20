@@ -1,6 +1,6 @@
 // the array to store all the users project titles
 // Not exported to avoid it being in the global space
-let projectTitles = [];
+let projectTitles = []
 
 function addTitle (title) {
     projectTitles.push(title)
