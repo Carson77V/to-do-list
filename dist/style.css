@@ -49,9 +49,10 @@ table {
 
 /* Main selectors */
 :root {
-	--main-orange: rgb(252, 151, 0);
+	--main-orange: rgb(255, 145, 0);
 	--main-blue: rgb(10, 153, 255);
 	--hover-blue: rgb(100, 170, 255);
+	--red-orange: rgb(255, 60, 0);
 }
 
 body {
@@ -153,6 +154,16 @@ hr {
 	display: flex;
 	flex-direction: column;
 	padding: 6px;
+	padding: 5px 2px 5px 2px;
+	margin: 3px 0;
+	border-radius: 7px;
+	font-size: clamp(1rem, 3vw, 1.5rem);
+	background-color: var(--main-blue);
+	width: auto;
+}
+
+.menu-form:hover {
+	background-color:rgb(10, 153, 255);
 }
 
 .menu-form input {
@@ -188,7 +199,7 @@ hr {
 
 .project-buttons .cancel-button {
 	margin-left: 3px;
-	background-color: red;
+	background-color: var(--red-orange);
 }
 
 /* Styles for the to-do list section of page*/
