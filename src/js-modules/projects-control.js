@@ -1,4 +1,5 @@
 import { addTitle, getTitles, deleteTitle} from "./projects";
+import { createMenuItem } from "./dom-projects" 
 
 // Event listener for the "+" button beside project title
 let plusButton = document.querySelector('.project-title > svg')
@@ -9,7 +10,10 @@ plusButton.addEventListener('click', () => {
 // Event listener for the Add button
 let addButton = document.querySelector(".add-button")
 addButton.addEventListener('click', () => {
-    console.log('it worked!')
+    //select the projects
+    const project = document.querySelector('projects')
+    // Add the new project to the bottom of the DOM
+    project.appendChild(createMenuItem())
 })
 
 // Event listenr for the cancel button
