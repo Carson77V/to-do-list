@@ -1,6 +1,6 @@
 // Returns the DOM element of a menu-item 
 // a simple project is added to the list on the DOM
-export default function createMenuItem(title) {
+export function createMenuItem(title) {
     const div = document.createElement('div')
     div.classList.add('menu-item')
     div.textContent = title
@@ -8,8 +8,8 @@ export default function createMenuItem(title) {
 }
 
 // returns a form for DOM to be used to create a new project
-export default function createForm() {
-    // create the div that encompassßes the entire block
+export function createForm() {
+    // create the div that encompasses the entire block
     const menuForm = document.createElement('div')
     menuForm.classList.add('menu-form')
 
@@ -51,5 +51,4 @@ export default function createForm() {
     menuForm.appendChild(form)
 
     return menuForm
-
 }
