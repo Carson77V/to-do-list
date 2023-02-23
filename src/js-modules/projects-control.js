@@ -7,20 +7,29 @@ plusButton.addEventListener('click', () => {
     //Calls function to add the project form to the DOM
     const project = document.querySelector('.projects')
     project.appendChild(createForm())
+
+    // add eventlisteners to buttons
+    const addButton = document.querySelector(".add-button")
+    addButton.addEventListener('click', saveButtonListener(addButton))
+    const cancelButton = document.querySelector(".cancel-button")
+    cancelButton.addEventListener('click', cancelButtonListener(cancelButton))
 })
 
-// Event listener for the Add button
-const addButton = document.querySelector(".add-button")
-addButton.addEventListener('click', () => {
+// add functionality to save button
+function saveButtonListener(addButton) {
     //select the projects
     const project = document.querySelector('.projects')
+    // select closest input node of button
+    const input = addButton.closest('div')
+    console.log(input)
+    // extract the text
+    //const title = input.value
     // Add the new project to the bottom of the DOM
-    project.appendChild(createMenuItem())
-})
+    project.appendChild(createMenuItem(input))
+}
 
-// Event listenr for the cancel button
-const cancelButton = document.querySelector(".cancel-button")
-cancelButton.addEventListener('click', () => {
-    // Calls function to delete project form from the DOM
-})
+// add functionality to cancel button
+function cancelButtonListener(cancelButton) {
+
+}
 
