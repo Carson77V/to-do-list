@@ -12,9 +12,27 @@ plusButton.addEventListener('click', () => {
 // Returns the DOM element of a menu-item 
 // a simple project is added to the list on the DOM
 function createMenuItem(title) {
+    //  create the menu-item div to hold the elements
     const div = document.createElement('div')
     div.classList.add('menu-item')
-    div.textContent = title
+    // create the title div
+    const titleDiv = document.createElement('div')
+    titleDiv.textContent = title
+    // create the trash bin img
+    const trash = document.createElement('img')
+    trash.setAttribute('src', './images/trash-2.svg')
+    trash.setAttribute('alt', 'trash icon')
+
+    // add eventlistener to trash icon
+    trash.addEventListener('click', (e) => {
+        deleteTitle(e.srcElement.closest('div').value)
+        e.srcElement.closest('.menu-item').remove()
+    })
+
+    // append the two children
+    div.appendChild(titleDiv)
+    div.appendChild(trash)
+    
     return div
 }
 
@@ -80,6 +98,8 @@ function save(e) {
     const inputText = menuForm.firstChild.firstChild.value
     // insert a new menu item after the form
     menuForm.insertAdjacentElement('afterend', createMenuItem(inputText))
+    // add the title to the array 
+    addTitle(inputText)
 
     // when everything is done, delete the form
     cancel(e)
@@ -90,4 +110,6 @@ function cancel(e) {
     // find the closest menu form and remove it
     e.srcElement.closest('.menu-form').remove()
 }
+
+
 
