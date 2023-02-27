@@ -52,7 +52,9 @@ function createForm() {
 
     // add eventlisteners
     addButton.addEventListener('click', () => {console.log('tester')})
-    cancelButton.addEventListener('click', () => {console.log('tester2')})
+    cancelButton.addEventListener('click', () => {
+        cancel()
+    })
 
     // Append the buttons to projectButtons
     projectButtons.appendChild(addButton)
@@ -66,5 +68,10 @@ function createForm() {
     menuForm.appendChild(form)
 
     return menuForm
+}
+
+function cancel() {
+    const div = document.querySelector('.menu-form')
+    div.remove()
 }
 
