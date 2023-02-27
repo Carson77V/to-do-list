@@ -39,6 +39,10 @@ export function createForm() {
     cancelButton.setAttribute('type', 'button')
     cancelButton.textContent = "Cancel"
 
+    // add eventlisteners
+    addButton.addEventListener('click', () => {console.log('tester')})
+    cancelButton.addEventListener('click', cancelButtonListener(cancelButton))
+
     // Append the buttons to projectButtons
     projectButtons.appendChild(addButton)
     projectButtons.appendChild(cancelButton)

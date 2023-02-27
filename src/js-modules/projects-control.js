@@ -1,5 +1,4 @@
-import { addTitle, getTitles, deleteTitle} from "./projects";
-import { createMenuItem, createForm } from "./dom-projects" 
+import { addTitle, getTitles, deleteTitle} from "./projects"
 
 // Event listener for the "+" button beside project title
 const plusButton = document.querySelector('.project-title > svg')
@@ -8,28 +7,64 @@ plusButton.addEventListener('click', () => {
     const project = document.querySelector('.projects')
     project.appendChild(createForm())
 
-    // add eventlisteners to buttons
-    const addButton = document.querySelector(".add-button")
-    addButton.addEventListener('click', saveButtonListener(addButton))
-    const cancelButton = document.querySelector(".cancel-button")
-    cancelButton.addEventListener('click', cancelButtonListener(cancelButton))
 })
 
-// add functionality to save button
-function saveButtonListener(addButton) {
-    //select the projects
-    const project = document.querySelector('.projects')
-    // select closest input node of button
-    const input = addButton.closest('div')
-    console.log(input)
-    // extract the text
-    //const title = input.value
-    // Add the new project to the bottom of the DOM
-    project.appendChild(createMenuItem(input))
+// Returns the DOM element of a menu-item 
+// a simple project is added to the list on the DOM
+function createMenuItem(title) {
+    const div = document.createElement('div')
+    div.classList.add('menu-item')
+    div.textContent = title
+    return div
 }
 
-// add functionality to cancel button
-function cancelButtonListener(cancelButton) {
+// returns a form for DOM to be used to create a new project
+function createForm() {
+    // create the div that encompasses the entire block
+    const menuForm = document.createElement('div')
+    menuForm.classList.add('menu-form')
 
+    // create the form and add attributes
+    const form = document.createElement('form')
+    form.setAttribute('action', "")
+    form.setAttribute('method', 'post')
+
+    // create the input box for text
+    const input = document.createElement('input')
+    input.setAttribute('type', 'text')
+    input.setAttribute('id', 'project-title')
+    input.setAttribute('name', 'projectTitle')
+
+    // create div to encompass buttons
+    const projectButtons = document.createElement('div')
+    projectButtons.classList.add('project-buttons')
+
+    //create the buttons
+    const addButton = document.createElement('button')
+    addButton.classList.add('add-button')
+    addButton.setAttribute('type', 'button')
+    addButton.textContent = "Add"
+
+    const cancelButton = document.createElement('button')
+    cancelButton.classList.add('cancel-button')
+    cancelButton.setAttribute('type', 'button')
+    cancelButton.textContent = "Cancel"
+
+    // add eventlisteners
+    addButton.addEventListener('click', () => {console.log('tester')})
+    cancelButton.addEventListener('click', () => {console.log('tester2')})
+
+    // Append the buttons to projectButtons
+    projectButtons.appendChild(addButton)
+    projectButtons.appendChild(cancelButton)
+
+    // Append input to form then projectButtons to form
+    form.appendChild(input)
+    form.appendChild(projectButtons)
+
+    // append form to the main div (menuForm)
+    menuForm.appendChild(form)
+
+    return menuForm
 }
 
