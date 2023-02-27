@@ -51,9 +51,11 @@ function createForm() {
     cancelButton.textContent = "Cancel"
 
     // add eventlisteners
-    addButton.addEventListener('click', () => {console.log('tester')})
-    cancelButton.addEventListener('click', () => {
-        cancel()
+    addButton.addEventListener('click', (e) => {
+        save(e)
+    })
+    cancelButton.addEventListener('click', (e) => {
+        cancel(e)
     })
 
     // Append the buttons to projectButtons
@@ -70,8 +72,11 @@ function createForm() {
     return menuForm
 }
 
-function cancel() {
-    const div = document.querySelector('.menu-form')
-    div.remove()
+function save(e) {
+    cancel(e)
+}
+
+function cancel(e) {
+    e.srcElement.closest('.menu-form').remove()
 }
 
