@@ -132,6 +132,19 @@ hr {
 	font-size: clamp(1rem, 3vw, 1.5rem);
 	background-color: var(--main-blue);
 	width: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.menu-item > img {
+	margin: 0 5px;
+	height: 1.3rem;
+	visibility: hidden;
+}
+
+.menu-item:hover img {
+	visibility: visible;
 }
 
 .project-title {
