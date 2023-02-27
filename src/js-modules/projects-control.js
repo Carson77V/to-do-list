@@ -73,10 +73,21 @@ function createForm() {
 }
 
 function save(e) {
+    // select the menu-form parent node
+    const menuForm = e.srcElement.closest('.menu-form')
+    // select the child of menu-form and the child of that to aquire the input node.
+    // Take the value of the input node
+    const inputText = menuForm.firstChild.firstChild.value
+    // insert a new menu item after the form
+    menuForm.insertAdjacentElement('afterend', createMenuItem(inputText))
+
+    // when everything is done, delete the form
     cancel(e)
 }
 
+// function used to delete menu-form
 function cancel(e) {
+    // find the closest menu form and remove it
     e.srcElement.closest('.menu-form').remove()
 }
 
