@@ -1,5 +1,12 @@
 import { addTitle, getTitles, deleteTitle} from "./projects"
 
+// Load localStorage data into the DOM
+const menuTitles = document.querySelector('.projects')
+const array = getTitles()
+for (let i = 0; i < array.length; i++) {
+    menuTitles.appendChild(createMenuItem(array[i]))
+}
+
 // Event listener for the "+" button beside project title
 const plusButton = document.querySelector('.project-title > svg')
 plusButton.addEventListener('click', () => {
@@ -25,7 +32,7 @@ function createMenuItem(title) {
 
     // add eventlistener to trash icon
     trash.addEventListener('click', (e) => {
-        deleteTitle(e.srcElement.closest('div').value)
+        deleteTitle(e.srcElement.previousElementSibling.textContent)
         e.srcElement.closest('.menu-item').remove()
     })
 
