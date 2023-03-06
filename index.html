@@ -46,6 +46,8 @@
       </div>
     </div>
     <div id="tasks">
+
+
       <div class="task">
         <div class="task-start">
           <span class="task-circle"></span>
@@ -53,10 +55,30 @@
         </div>
         <div class="task-end">
           <div class="task-date">1/1/2024</div>
-          <button class="task-edit">Edit</button>
+          <img src="images/edit.svg" alt="edit button">
         </div>
       </div>
 
+      <div class="task">
+        <form action="" method="post">
+          <div>
+            <input type="text" id="title-edit" placeholder="Title" name="title-edit">
+            <label for="date">Date: </label>
+            <input type="date" id="date" name="date">
+          </div>
+          <textarea placeholder="Description"></textarea>
+          <div>
+            <label for="priority">Priority: </label>
+            <select name="priority" id="priority">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+            <button type="button">Save</button>
+          </div>
+        </form>
+      </div>
+      
       <div class="add-task">
         <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" fill="red"><title>Add</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 112v288M400 256H112"/></svg>
         <p>Add Task</p>
