@@ -1,6 +1,8 @@
 /* fonts */
 /* 'Roboto Slab' */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;600;800&display=swap');
+/* 'Ubuntu' */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -53,11 +55,11 @@ table {
 
 /* Main selectors */
 :root {
-	--main-orange: rgb(255, 123, 0);
-	--red-orange: rgb(255, 60, 0);
+	--red-orange: rgb(255, 60, 20);
 	--red-hover: rgb(220, 37, 0);
 	--menu-background: #eaeaea;
 	--menu-hover: #dadada;
+	--bright-green: rgb(50, 240, 30);
 }
 
 body {
@@ -199,6 +201,7 @@ hr {
 	border-radius: 8px;
 	border: 1px solid black;
 	margin-bottom: 6px;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 .project-buttons {
@@ -215,7 +218,7 @@ hr {
 
 .add-button {
 	margin-right: 3px;
-	background-color: rgb(50, 240, 30);
+	background-color: var(--bright-green);
 }
 
 .add-button:hover {
@@ -273,7 +276,7 @@ hr {
 }
 
 .task-circle:hover {
-	background-color: var(--main-orange);
+	background-color: var(--bright-green);
 }
 
 .task-title {
@@ -311,7 +314,7 @@ img[src="images/edit.svg"]:hover {
 	align-items: center;
 	width: 100%;
 	max-width: 700px;
-	margin: 5px auto;
+	margin: 10px auto;
 	border-radius: 7px;
 }
 
@@ -325,10 +328,27 @@ img[src="images/edit.svg"]:hover {
 }
 
 .task-form {
-	border: 1px solid black;
+	border: 1px solid rgb(0, 0, 0, 0.4);
 	border-radius: 10px;
 	padding: 6px;
 	box-sizing: border-box;
+	box-shadow: 5px 5px 8px var(--menu-background);
+}
+
+#title-edit {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1.1rem;
+	border: none;
+}
+
+[for="date"] {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+#date {
+	font-family: 'Ubuntu', sans-serif;
+	border: 1px solid black;
+	border-radius: 3px;
 }
 
 .textarea-div {
@@ -339,18 +359,44 @@ img[src="images/edit.svg"]:hover {
 	width: calc(99% + 1px);
 	resize: none;
 	height: 3rem;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 0.88rem;
+	border: none;
 }
 
+[for="priority"] {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+#priority {
+	font-family: 'Ubuntu', sans-serif;
+}
 .top-form-task {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	border-bottom: 1px solid rgb(0, 0, 0, 0.4);
 }
 
 .lower-form-task {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.task-form button {
+	background-color: var(--red-orange);
+	border: 1px solid rgb(0, 0, 0, 0.4);
+	border-radius: 5px;
+	font-family: 'Roboto Slab', serif;
+	font-weight: 400;
+	font-size: 1rem;
+	width: 55px;
+	color: white;
+}
+
+.task-form button:hover {
+	background-color: var(--red-hover);
 }
 
 /*responsive website designs*/
