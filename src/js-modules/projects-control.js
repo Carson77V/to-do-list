@@ -43,6 +43,8 @@ function createMenuItem(title) {
     // append the two children
     div.appendChild(titleDiv)
     div.appendChild(trash)
+
+    addMenuItemEvent(div)
     
     return div
 }
@@ -128,7 +130,11 @@ function addMenuItemEvent (item) {
     item.addEventListener('click', (e) => {
         // removes the class that is highlighting the currently selected item
         const currentSelected = document.querySelector('.menu-selected')
-        currentSelected.classList.remove('menu-selected')
+        // make sure currentSelected isn't null to prevent an error
+        // currentSelected will be null when the trash icon is clicked to delete
+        if (currentSelected != null){
+            currentSelected.classList.remove('menu-selected')
+        }
         //add the menu-selected class to the item that was selected
         e.srcElement.classList.add('menu-selected')
     })
