@@ -59,6 +59,7 @@ function createForm() {
     input.setAttribute('type', 'text')
     input.setAttribute('id', 'project-title')
     input.setAttribute('name', 'projectTitle')
+    input.setAttribute('maxlength', '15')
 
     // create div to encompass buttons
     const projectButtons = document.createElement('div')
