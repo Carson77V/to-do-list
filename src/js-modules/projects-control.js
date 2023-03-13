@@ -7,6 +7,10 @@ for (let i = 0; i < array.length; i++) {
     menuTitles.appendChild(createMenuItem(array[i]))
 }
 
+//Add events to all the current menu options
+const menuItems = document.querySelectorAll('.menu-item')
+menuItems.forEach(addMenuItemEvent)
+
 // Event listener for the "+" button beside project title
 const plusButton = document.querySelector('.project-title > svg')
 plusButton.addEventListener('click', () => {
@@ -119,5 +123,14 @@ function cancel(e) {
     e.srcElement.closest('.menu-form').remove()
 }
 
-
+// add event listener for a menu-item
+function addMenuItemEvent (item) {
+    item.addEventListener('click', (e) => {
+        // removes the class that is highlighting the currently selected item
+        const currentSelected = document.querySelector('.menu-selected')
+        currentSelected.classList.remove('menu-selected')
+        //add the menu-selected class to the item that was selected
+        e.srcElement.classList.add('menu-selected')
+    })
+}
 

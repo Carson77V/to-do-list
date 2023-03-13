@@ -155,6 +155,10 @@ hr {
 	font-weight: 400;
 }
 
+.menu-selected {
+	background-color: var(--menu-hover);
+}
+
 .menu-item > img {
 	margin: 0 5px;
 	height: 1.3rem;
