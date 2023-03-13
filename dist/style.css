@@ -1,6 +1,6 @@
 /* fonts */
 /* 'Roboto Slab' */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;600;800&display=swap');
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -92,6 +92,7 @@ header {
     align-items: center;
     background-color: var(--red-orange);
 	height: 9vh;
+	min-width: 370px;
 }
 
 header > img {
@@ -271,6 +272,10 @@ hr {
 	margin: 5px;
 }
 
+.task-circle:hover {
+	background-color: var(--main-orange);
+}
+
 .task-title {
 	font-size: clamp(1.1rem, 2vw, 1.3rem);
 	margin: 0 5px;
@@ -292,7 +297,7 @@ img[src="images/edit.svg"] {
 }
 
 img[src="images/edit.svg"]:hover {
-	background-color: var(--red-orange);
+	background-color: var(--menu-background);
 }
 
 
@@ -306,12 +311,17 @@ img[src="images/edit.svg"]:hover {
 	align-items: center;
 	width: 100%;
 	max-width: 700px;
-	margin: 0 auto;
+	margin: 5px auto;
 	border-radius: 7px;
 }
 
+.add-task > p {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 300;
+}
+
 .add-task:hover {
-	background-color: var(--hover-blue);
+	background-color: var(--menu-background);
 }
 
 .task-form {
