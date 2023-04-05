@@ -8,11 +8,30 @@ let allTasks = []
 export default function renderTasks (menuSelected) {
     // first remove the current tasks
     removeTasks()
-    // select the add Task
+
+    // create a new array that holds only the required tasks from the project
+    const newArray = allTasks.filter(item => {
+        if (menuSelected == "Today") {
+            // TO DO
+        }
+        else if (menuSelected == "Important") {
+            return item.getPriority = 1;
+        }
+        else if (menuSelected == "All") {return true}
+        else {
+            return item.getProject = menuSelected; 
+        }
+    });
+    // Select the add task 
+    const addTask = document.querySelector('.add-task')
+    // select tasks div
     const tasksDiv = document.querySelector('#tasks')
-    if (menuSelected = "All") {
-        allTasks.forEach(createTask)
-    }
+    //loop through the new array and render the tasks
+    newArray.forEach((item) => {
+        // add new elements before + Add Task
+        const ele = createTask(item.getTitle(), item.getDate())
+        tasksDiv.insertBefore(ele, addTask)
+    })
 }
 
 // when renderTasks() is called, use this function to delete the current tasks
