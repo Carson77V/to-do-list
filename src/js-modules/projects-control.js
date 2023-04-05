@@ -1,4 +1,9 @@
 import { addTitle, getTitles, deleteTitle} from "./projects"
+import renderTasks from "./task-control.js"
+
+//Add events to the default menu options
+const menuItems = document.querySelectorAll('.menu-item')
+menuItems.forEach(addMenuItemEvent)
 
 // Load localStorage data into the DOM
 const menuTitles = document.querySelector('.projects')
@@ -6,10 +11,6 @@ const array = getTitles()
 for (let i = 0; i < array.length; i++) {
     menuTitles.appendChild(createMenuItem(array[i]))
 }
-
-//Add events to all the current menu options
-const menuItems = document.querySelectorAll('.menu-item')
-menuItems.forEach(addMenuItemEvent)
 
 // Event listener for the "+" button beside project title
 const plusButton = document.querySelector('.project-title > svg')
@@ -137,6 +138,7 @@ function addMenuItemEvent (item) {
         }
         //add the menu-selected class to the item that was selected
         e.srcElement.classList.add('menu-selected')
+        // call function to render the tasks
+        renderTasks(e.srcElement.firstChild.textContent)
     })
 }
-
