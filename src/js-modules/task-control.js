@@ -5,6 +5,14 @@ import createTaskEdit from './task-edit-dom.js'
 // create an array to store all the tasks
 let allTasks = []
 
+//add event listener to +Add Task button
+const addTask = document.querySelector('.add-task')
+addTask.addEventListener('click', () => {
+    // Need to put a task-edit above +Add Task
+    const tasksDiv = document.querySelector('#tasks')
+    tasksDiv.insertBefore(createTaskEdit(null, null, null, 3), addTask)
+})
+
 export default function renderTasks (menuSelected) {
     // first remove the current tasks
     removeTasks()
@@ -41,5 +49,6 @@ function removeTasks () {
     // remove each task
     allTasks.forEach((item) => {
         item.remove()
-      });
+    });
 }
+
