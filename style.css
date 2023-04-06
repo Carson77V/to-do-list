@@ -337,6 +337,7 @@ img[src="images/edit.svg"]:hover {
 	padding: 6px;
 	box-sizing: border-box;
 	box-shadow: 5px 5px 8px var(--menu-background);
+	margin: 5px 0;
 }
 
 #title-edit {
@@ -397,6 +398,7 @@ img[src="images/edit.svg"]:hover {
 	font-size: 1rem;
 	width: 55px;
 	color: white;
+	margin-left: 5px;
 }
 
 .task-form button:hover {
