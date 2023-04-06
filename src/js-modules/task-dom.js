@@ -13,7 +13,7 @@ export default function createTask (title, date) {
 
     //create button to complete task
     const checkButton = document.createElement('span')
-    checkButton.classList.add('check-button')
+    checkButton.classList.add('task-circle')
 
     //create div to hold title of task
     const taskTitle = document.createElement('div')
