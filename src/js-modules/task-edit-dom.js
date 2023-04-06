@@ -80,13 +80,23 @@ export default function createTaskEdit (title, date, description, priority) {
     encompasDiv.appendChild(priorityLabel)
     encompasDiv.appendChild(prioritySelect)
 
+    // create the Save and Delete buttons in their own div
+    const buttonDiv = document.createElement('div')
+
+    const delButton = document.createElement('button')
+    delButton.textContent = 'Del'
+    delButton.setAttribute('type', 'button')
+
     const saveButton = document.createElement('button')
     saveButton.textContent = 'Save'
     saveButton.setAttribute('type', 'button')
 
+    buttonDiv.appendChild(delButton)
+    buttonDiv.appendChild(saveButton)
+
     // append the lower elements 
     lowerDiv.appendChild(encompasDiv)
-    lowerDiv.appendChild(saveButton)
+    lowerDiv.appendChild(buttonDiv)
     //append the lower div to the form
     form.appendChild(lowerDiv)
     //append form to the task div
