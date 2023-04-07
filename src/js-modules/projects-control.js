@@ -1,5 +1,8 @@
 import { addTitle, getTitles, deleteTitle} from "./projects"
-import renderTasks from "./task-control.js"
+import { renderTasks } from "./task-control.js"
+
+// variable used to keep track of which menu item is selected
+export let menuSelected = 'All'
 
 //Add events to the default menu options
 const menuItems = document.querySelectorAll('.menu-item')
@@ -139,6 +142,7 @@ function addMenuItemEvent (item) {
         //add the menu-selected class to the item that was selected
         e.srcElement.classList.add('menu-selected')
         // call function to render the tasks
-        renderTasks(e.srcElement.firstChild.textContent)
+        menuSelected = e.srcElement.firstChild.textContent
+        renderTasks(menuSelected)
     })
 }

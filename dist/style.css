@@ -337,13 +337,14 @@ img[src="images/edit.svg"]:hover {
 	padding: 6px;
 	box-sizing: border-box;
 	box-shadow: 5px 5px 8px var(--menu-background);
-	margin: 5px 0;
+	margin-top: 5px;
 }
 
 #title-edit {
 	font-family: 'Ubuntu', sans-serif;
 	font-size: 1.1rem;
 	border: none;
+	width: min(40vw, 14rem);
 }
 
 [for="date"] {

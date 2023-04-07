@@ -1,3 +1,5 @@
+import { save } from './task-control.js'
+
 export default function createTaskEdit (title, date, description, priority) {
     //create div to hold all the elements
     const taskForm = document.createElement('div')
@@ -90,6 +92,7 @@ export default function createTaskEdit (title, date, description, priority) {
     const saveButton = document.createElement('button')
     saveButton.textContent = 'Save'
     saveButton.setAttribute('type', 'button')
+    saveButton.addEventListener('click', (e) => {save(e)})
 
     buttonDiv.appendChild(delButton)
     buttonDiv.appendChild(saveButton)
@@ -112,3 +115,4 @@ function createOption (i) {
     option.setAttribute('value', i)
     return option
 }
+

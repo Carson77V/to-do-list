@@ -1,6 +1,7 @@
-import task from './task-object.js'
+import { task } from './task-object.js'
 import createTask from './task-dom.js'
 import createTaskEdit from './task-edit-dom.js'
+import { menuSelected } from './projects-control.js'
 
 // create an array to store all the tasks
 let allTasks = []
@@ -13,7 +14,7 @@ addTask.addEventListener('click', () => {
     tasksDiv.insertBefore(createTaskEdit(null, null, null, 3), addTask)
 })
 
-export default function renderTasks (menuSelected) {
+export function renderTasks (menuSelected) {
     // first remove the current tasks
     removeTasks()
 
@@ -52,3 +53,16 @@ function removeTasks () {
     });
 }
 
+export function save (e) {
+    // get the src element and then the form node
+    const button = e.srcElement
+    const form = button.closest('form')
+    // gather all required info to build a new task object
+    const title = form.querySelector('#title-edit').value
+    const date = form.querySelector('#date').value
+    const description = form.querySelector('textarea').value
+    const priority = form.querySelector('#priority').value
+    //allTasks.push(task(title, date, description, priority, menuSelected))
+    allTasks.push(task(title, date, description, priority, menuSelected))
+    console.log(allTasks[0].getTitle())
+}
