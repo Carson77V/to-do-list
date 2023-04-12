@@ -23,7 +23,7 @@ export default function createTask (title, date) {
     //create div to hold the date
     const taskDate = document.createElement('div')
     taskDate.classList.add('task-date')
-    taskDate.textContent = '1/2/2023'//TO DO
+    taskDate.textContent = date
 
     //create the edit button/img
     const editButton = document.createElement('img')

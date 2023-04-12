@@ -73,7 +73,7 @@ export default function createTaskEdit (title, date, description, priority) {
     prioritySelect.value = priority //TO DO
 
     //use a loop to add 3 options to the DOM
-    for (let i = 1; i <=3; i++) {
+    for (let i = 1; i <= 3; i++) {
         //use a function to return the DOM option element
         prioritySelect.appendChild(createOption(i))
     }

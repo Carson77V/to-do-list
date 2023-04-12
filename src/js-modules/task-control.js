@@ -1,7 +1,7 @@
 import { task } from './task-object.js'
 import createTask from './task-dom.js'
 import createTaskEdit from './task-edit-dom.js'
-import { menuSelected } from './projects-control.js'
+import { menuSelected as menuSelected} from './projects-control.js'
 
 // create an array to store all the tasks
 let allTasks = []
@@ -24,11 +24,11 @@ export function renderTasks (menuSelected) {
             // TO DO
         }
         else if (menuSelected == "Important") {
-            return item.getPriority = 1;
+            return item.getPriority == 1;
         }
         else if (menuSelected == "All") {return true}
         else {
-            return item.getProject = menuSelected; 
+            return item.getProject() == menuSelected; 
         }
     });
     // Select the add task 
@@ -62,7 +62,10 @@ export function save (e) {
     const date = form.querySelector('#date').value
     const description = form.querySelector('textarea').value
     const priority = form.querySelector('#priority').value
-    //allTasks.push(task(title, date, description, priority, menuSelected))
     allTasks.push(task(title, date, description, priority, menuSelected))
-    console.log(allTasks[0].getTitle())
+    // render the new tasks
+    // other task form on page will be removed
+    renderTasks(menuSelected)
+    // remove the form
+    form.parentElement.remove()
 }
