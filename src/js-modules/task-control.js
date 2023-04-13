@@ -21,10 +21,10 @@ export function renderTasks (menuSelected) {
     // create a new array that holds only the required tasks from the project
     const newArray = allTasks.filter(item => {
         if (menuSelected == "Today") {
-            // TO DO
+            return isDueToday(item.getDate())
         }
         else if (menuSelected == "Important") {
-            return item.getPriority == 1;
+            return item.getPriority() == 1;
         }
         else if (menuSelected == "All") {return true}
         else {
@@ -108,7 +108,7 @@ function taskSearch (title, date) {
     if (menuSelected != 'All') {
         for (let i = 0; i < secondSort.length; i++){
             if (allTasks[secondSort[0]].getProject() === menuSelected){
-                return i
+                return secondSort[i]
             }
         }
     }
@@ -116,5 +116,20 @@ function taskSearch (title, date) {
     else {
         return secondSort[0]
     }
+}
 
+// functin returns true if the due date is today or from the past
+function isDueToday (date) {
+    // create today's date
+    const today = new Date()
+    // split the date from the task into a new array
+    const currentDates = date.split('-')
+    // if the year is less than current year return true
+    if (currentDates[0] < today.getFullYear()) return true;
+    // if month is month is less than current return true
+    if (currentDates[1] < today.getMonth()) return true;
+    // if day is less than or equal to current day return true
+    if (currentDates[2] <= today.getDate()) return true;
+
+    return false
 }
