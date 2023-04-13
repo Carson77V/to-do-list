@@ -69,3 +69,52 @@ export function save (e) {
     // remove the form
     form.parentElement.remove()
 }
+
+export function delTask(e) {
+    // get the parent element
+    const parent = e.srcElement.parentElement.parentElement
+    // get the title and date
+    const title = parent.querySelector('.task-title')
+    const date = parent.querySelector('.task-date')
+    // use the function to find the index of the array where the task is saved
+    const i = taskSearch(title.textContent, date.textContent)
+    // deletes the object from the array
+    allTasks.splice(i, 1)
+    // remove the element from the DOM
+    parent.remove()
+}
+
+// this function uses the title and date of a task to find its 
+// index in the array and returns it
+function taskSearch (title, date) {
+    // create a new array that stores all indexes with same title
+    const firstSort = []
+    for (let i = 0; i < allTasks.length; i++) {
+        if (allTasks[i].getTitle() === title) {
+            firstSort.push(i)
+        }
+    }
+    // repeat process to narrow down indexes based off of date
+    const secondSort = []
+    // have to sort through firstSort[] to find all the indexes
+    for (let i = 0; i < firstSort.length; i++) {
+        if (allTasks[firstSort[i]].getDate() == date) {
+            // append those indexes to secondSort[]
+            secondSort.push(firstSort[i])
+        }
+    }
+    // using secondSort find the task with a Project that matches menu selected
+    // return the index
+    if (menuSelected != 'All') {
+        for (let i = 0; i < secondSort.length; i++){
+            if (allTasks[secondSort[0]].getProject() === menuSelected){
+                return i
+            }
+        }
+    }
+    // if there are multiples in 'All', return the index to the first task
+    else {
+        return secondSort[0]
+    }
+
+}
