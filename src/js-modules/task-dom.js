@@ -1,4 +1,4 @@
-import { delTask } from "./task-control.js"
+import { delTask, editTask } from "./task-control.js"
 
 // function that returns a task for the DOM
 export default function createTask (title, date) {
@@ -32,6 +32,7 @@ export default function createTask (title, date) {
     const editButton = document.createElement('img')
     editButton.src = 'images/edit.svg'
     editButton.setAttribute('alt', 'edit button')
+    editButton.addEventListener('click', (e) => {editTask(e)})
 
     // Append all elements together
     taskEnd.appendChild(taskDate)

@@ -73,24 +73,35 @@ export function save (e) {
 export function delTask(e) {
     // get the parent element
     const parent = e.srcElement.parentElement.parentElement
-    // get the title and date
-    const title = parent.querySelector('.task-title')
-    const date = parent.querySelector('.task-date')
     // use the function to find the index of the array where the task is saved
-    const i = taskSearch(title.textContent, date.textContent)
+    const i = taskSearch(parent)
     // deletes the object from the array
     allTasks.splice(i, 1)
     // remove the element from the DOM
     parent.remove()
 }
 
+// will open an edit form for the task
+export function editTask(e) {
+    // get the parent element
+    const parent = e.srcElement.parentElement.parentElement
+    // find the task in the allTasks array
+    const i = taskSearch(parent)
+
+    parent.appendChild(createTaskEdit())
+}
+
 // this function uses the title and date of a task to find its 
 // index in the array and returns it
-function taskSearch (title, date) {
+function taskSearch (parent) {
+    // save the title and date by splitting the returned string
+    const variables = getTaskVars(parent).split('.')
+    console.log(variables)
+
     // create a new array that stores all indexes with same title
     const firstSort = []
     for (let i = 0; i < allTasks.length; i++) {
-        if (allTasks[i].getTitle() === title) {
+        if (allTasks[i].getTitle() === variables[0]) {
             firstSort.push(i)
         }
     }
@@ -98,7 +109,7 @@ function taskSearch (title, date) {
     const secondSort = []
     // have to sort through firstSort[] to find all the indexes
     for (let i = 0; i < firstSort.length; i++) {
-        if (allTasks[firstSort[i]].getDate() == date) {
+        if (allTasks[firstSort[i]].getDate() == variables[1]) {
             // append those indexes to secondSort[]
             secondSort.push(firstSort[i])
         }
@@ -132,4 +143,13 @@ function isDueToday (date) {
     if (currentDates[2] <= today.getDate()) return true;
 
     return false
+}
+
+function getTaskVars (parent) {
+    // get the title and date
+    const title = parent.querySelector('.task-title').textContent
+    const date = parent.querySelector('.task-date').textContent
+
+    // return title and date as a string
+    return title + '.' + date
 }
