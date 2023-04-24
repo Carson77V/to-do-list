@@ -1,4 +1,5 @@
 import { save } from './task-control.js'
+import { delTask } from './task-control.js'
 
 export default function createTaskEdit (title, date, description, priority, id) {
     //create div to hold all the elements
@@ -90,6 +91,7 @@ export default function createTaskEdit (title, date, description, priority, id) 
     const delButton = document.createElement('button')
     delButton.textContent = 'Del'
     delButton.setAttribute('type', 'button')
+    delButton.addEventListener('click', (e) => {delTask(e)})
 
     const saveButton = document.createElement('button')
     saveButton.textContent = 'Save'

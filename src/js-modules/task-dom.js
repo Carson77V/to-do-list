@@ -1,7 +1,7 @@
 import { delTask, editTask } from "./task-control.js"
 
 // function that returns a task for the DOM
-export default function createTask (title, date, id) {
+export default function createTask (title, date, id, priority) {
     //create default div to hold all the info
     const taskDiv = document.createElement('div')
     taskDiv.classList.add('task')
@@ -17,6 +17,12 @@ export default function createTask (title, date, id) {
     //create button to complete task
     const checkButton = document.createElement('span')
     checkButton.classList.add('task-circle')
+    if (priority == 1){
+        checkButton.style.cssText = 'box-shadow: 0 0 5px rgb(255, 60, 20), inset 0 0 5px rgb(255, 60, 20)'
+    }
+    else if (priority == 2){
+        checkButton.style.cssText = 'box-Shadow: 0 0 5px #C9B400, inset 0 0 5px #C9B400'
+    }
     checkButton.addEventListener('click', (e) => {delTask(e)})
 
     //create div to hold title of task
