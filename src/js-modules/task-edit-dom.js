@@ -1,10 +1,11 @@
 import { save } from './task-control.js'
 
-export default function createTaskEdit (title, date, description, priority) {
+export default function createTaskEdit (title, date, description, priority, id) {
     //create div to hold all the elements
     const taskForm = document.createElement('div')
     taskForm.classList.add('task-span')
     taskForm.classList.add('task-form')
+    taskForm.id = id
 
     //create the form 
     const form = document.createElement('form')
@@ -23,7 +24,7 @@ export default function createTaskEdit (title, date, description, priority) {
     editTitle.setAttribute('placeholder', 'Title')
     editTitle.setAttribute('name', 'title-edit')
     editTitle.setAttribute('maxlength', '20')
-    editTitle.value = title //TO DO
+    editTitle.value = title 
 
     //input for the date
     const dateDiv = document.createElement('div')
@@ -35,7 +36,7 @@ export default function createTaskEdit (title, date, description, priority) {
     inputDate.setAttribute('type', 'date')
     inputDate.setAttribute('id', 'date')
     inputDate.setAttribute('name', 'date')
-    inputDate.value = date //TO DO
+    inputDate.value = date 
 
     //append the top together and add it to the full form
     dateDiv.appendChild(dateLabel)
@@ -52,7 +53,7 @@ export default function createTaskEdit (title, date, description, priority) {
 
     const textArea = document.createElement('textarea')
     textArea.setAttribute('placeholder', 'Description')
-    textArea.value = description //TO DO 
+    textArea.value = description 
 
     textAreaDiv.appendChild(textArea)
     form.appendChild(textAreaDiv)
@@ -70,13 +71,14 @@ export default function createTaskEdit (title, date, description, priority) {
     const prioritySelect = document.createElement('select')
     prioritySelect.setAttribute('name', 'priority')
     prioritySelect.setAttribute('id', 'priority')
-    prioritySelect.value = priority //TO DO
 
     //use a loop to add 3 options to the DOM
     for (let i = 3; i >= 1; i--) {
         //use a function to return the DOM option element
         prioritySelect.appendChild(createOption(i))
     }
+    // after creating options, give value to prioritySelect
+    prioritySelect.value = priority 
 
     //append the priority elements to the div
     encompasDiv.appendChild(priorityLabel)

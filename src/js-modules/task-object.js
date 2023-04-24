@@ -1,5 +1,5 @@
 // factory function used to construct task object
-export const task = (title, date, description, priority, project) => {
+export const task = (title, date, description, priority, project, id) => {
     let obj = Object.create(taskProto)
     obj.title = title
     obj.description = description
@@ -7,6 +7,7 @@ export const task = (title, date, description, priority, project) => {
     obj.priority = priority
     // variable used to determine what project the task is in
     obj.project = project
+    obj.id = id
     return obj
 }
 
@@ -42,6 +43,12 @@ const taskProto = {
     },
     setProject(project) {
         this.project = project
-    }
+    },
+    getId() {
+        return this.id
+    },
+    setId(id) {
+        this.id = id
+    },
 }
 

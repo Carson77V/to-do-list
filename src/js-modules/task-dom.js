@@ -1,11 +1,12 @@
 import { delTask, editTask } from "./task-control.js"
 
 // function that returns a task for the DOM
-export default function createTask (title, date) {
+export default function createTask (title, date, id) {
     //create default div to hold all the info
     const taskDiv = document.createElement('div')
     taskDiv.classList.add('task')
     taskDiv.classList.add('task-span')
+    taskDiv.id = id
 
     //create two halves for the div 
     const taskStart = document.createElement('div')
