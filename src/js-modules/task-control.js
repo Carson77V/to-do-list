@@ -5,6 +5,14 @@ import { menuSelected as menuSelected} from './projects-control.js'
 
 // create an array to store all the tasks
 let allTasks = []
+//const tproto = Object.assign({}, taskProto)
+if (JSON.parse(localStorage.getItem('allTasks')) != null) {
+    allTasks = JSON.parse(localStorage.getItem('allTasks'))
+    // assign the prototype because it isn't saved with localStorage
+    allTasks.forEach((item, index) => {
+        allTasks[index] = task(item.title, item.date, item.description, item.priority, item.project, item.id)
+    })
+}
 
 //add event listener to +Add Task button
 const addTask = document.querySelector('.add-task')
@@ -80,6 +88,9 @@ export function save (e) {
     renderTasks(menuSelected)
     // remove the form
     form.remove()
+    // save the data to localStorage
+    localStorage.setItem('allTasks', JSON.stringify(allTasks))
+    console.log(localStorage.getItem('allTasks'))
 }
 
 export function delTask(e) {
