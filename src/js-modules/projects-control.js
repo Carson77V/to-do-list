@@ -4,9 +4,6 @@ import { renderTasks } from "./task-control.js"
 // variable used to keep track of which menu item is selected
 export let menuSelected = 'All'
 
-// render the tasks when page is reloaded or opened
-renderTasks(menuSelected)
-
 //Add events to the default menu options
 const menuItems = document.querySelectorAll('.menu-item')
 menuItems.forEach(addMenuItemEvent)
@@ -146,6 +143,7 @@ function addMenuItemEvent (item) {
         e.srcElement.classList.add('menu-selected')
         // call function to render the tasks
         menuSelected = e.srcElement.firstChild.textContent
+        console.log(menuSelected)
         renderTasks(menuSelected)
     })
 }

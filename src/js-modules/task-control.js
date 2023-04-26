@@ -2,10 +2,10 @@ import { task } from './task-object.js'
 import createTask from './task-dom.js'
 import createTaskEdit from './task-edit-dom.js'
 import { menuSelected as menuSelected} from './projects-control.js'
-
+//localStorage.clear()
 // create an array to store all the tasks
 let allTasks = []
-//const tproto = Object.assign({}, taskProto)
+
 if (JSON.parse(localStorage.getItem('allTasks')) != null) {
     allTasks = JSON.parse(localStorage.getItem('allTasks'))
     // assign the prototype because it isn't saved with localStorage
@@ -94,7 +94,6 @@ export function save (e) {
     form.remove()
     // save the data to localStorage
     localStorage.setItem('allTasks', JSON.stringify(allTasks))
-    console.log(localStorage.getItem('allTasks'))
 }
 
 export function delTask(e) {
@@ -112,6 +111,7 @@ export function delTask(e) {
     }
     removeTasks()
     renderTasks(menuSelected)
+    localStorage.setItem('allTasks', JSON.stringify(allTasks))
 }
 
 // will open an edit form for the task
