@@ -14,6 +14,10 @@ if (JSON.parse(localStorage.getItem('allTasks')) != null) {
     })
 }
 
+// render the tasks when page is reloaded or opened
+// rendered after tasks have been loaded into memory
+renderTasks("All")
+
 //add event listener to +Add Task button
 const addTask = document.querySelector('.add-task')
 addTask.addEventListener('click', () => {
