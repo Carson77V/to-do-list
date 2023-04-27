@@ -142,8 +142,14 @@ function addMenuItemEvent (item) {
         //add the menu-selected class to the item that was selected
         e.srcElement.classList.add('menu-selected')
         // call function to render the tasks
-        menuSelected = e.srcElement.firstChild.textContent
-        console.log(menuSelected)
+        // if textContent reading null error appears, catch the error
+        // and confirm project deletion
+        try {
+            menuSelected = e.srcElement.firstChild.textContent
+        }
+        catch (err){
+            console.log('Project Deleted')
+        }
         renderTasks(menuSelected)
     })
 }
