@@ -59,7 +59,7 @@ table {
 	--red-hover: rgb(220, 37, 0);
 	--menu-background: #eaeaea;
 	--menu-hover: #dadada;
-	--bright-green: rgb(50, 240, 30);
+	--bright-green: rgb(40, 240, 10);
 }
 
 body {
@@ -280,7 +280,7 @@ hr {
 }
 
 .task-circle:hover {
-	background-color: var(--bright-green);
+	background-color: var(--red-orange);
 }
 
 .task-title {
