@@ -141,15 +141,22 @@ function isDueToday (date) {
     // if there is no date, return false
     if (date == '') {return false}
     // create today's date
-    const today = new Date()
+    let today = new Date()
     // split the date from the task into a new array
     const currentDates = date.split('-')
-    // if the year is less than current year return true
-    if (currentDates[0] < today.getFullYear()) return true;
-    // if month is month is less than current return true
-    if (currentDates[1] < today.getMonth()) return true;
-    // if day is less than or equal to current day return true
-    if (currentDates[2] <= today.getDate()) return true;
+    // if task from a past year return true
+    if (currentDates[0] < today.getFullYear()) return true
+    // if the year is the same then check month and day
+    // if not, the year must be in the future
+    if (currentDates[0] == today.getFullYear()) {
+        // if month is month is less than current return true
+        if (currentDates[1] < today.getMonth() + 1) return true
+        // if in current month then check the day
+        if (+currentDates[1] == today.getMonth() + 1) {
+            // if day is less than or equal to current day return true
+            if (currentDates[2] <= today.getDate()) return true;
+        }
+    }
 
     return false
 }
