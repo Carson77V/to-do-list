@@ -97,8 +97,16 @@ export function save (e) {
 }
 
 export function delTask(e) {
-    // get the parent element
-    const parent = e.srcElement.parentElement.parentElement
+    // declare the parent value
+    let parent = ''
+    // check if task is being completed or deleted and save
+    // the task DOM element to get id later
+    if (e.srcElement.classList.value == 'task-circle'){
+        parent = e.srcElement.parentElement.parentElement
+    }
+    else {
+        parent = e.srcElement.closest('.task-form')
+    }
     // use the function to find the index of the array where the task is saved
     const i = +(parent.id)
     // deletes the object from the array
@@ -109,9 +117,9 @@ export function delTask(e) {
     for (let i = 0; i < allTasks.length; i++) {
         allTasks[i].setId(i)
     }
+    localStorage.setItem('allTasks', JSON.stringify(allTasks))
     removeTasks()
     renderTasks(menuSelected)
-    localStorage.setItem('allTasks', JSON.stringify(allTasks))
 }
 
 // will open an edit form for the task
@@ -130,6 +138,8 @@ export function editTask(e) {
 
 // functin returns true if the due date is today or from the past
 function isDueToday (date) {
+    // if there is no date, return false
+    if (date == '') {return false}
     // create today's date
     const today = new Date()
     // split the date from the task into a new array
@@ -143,12 +153,3 @@ function isDueToday (date) {
 
     return false
 }
-
-// function getTaskVars (parent) {
-//     // get the title and date
-//     const title = parent.querySelector('.task-title').textContent
-//     const date = parent.querySelector('.task-date').textContent
-
-//     // return title and date as a string
-//     return title + '.' + date
-// }
